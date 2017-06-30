@@ -30,3 +30,13 @@ modules: [
 **Default** update interval is set to **10 seconds,** which should be a safe value
 
 <a href="https://cryptowat.ch/docs/api#rate-limit">API Documentation can be found here</a>
+
+## To Do
+* 24h high/low values on the ticker
+* Last change indicator (Green = price went up, Red = Price went down)
+* Current hashrate for mining rig
+* Alert when miner goes offline
+* Average hashrate for mining rig
+* Pending payout for mining
+* Mining calculator based on average mining
+* Convert USD value to local currency (Configurable - ZAR in my case)
