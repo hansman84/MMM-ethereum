@@ -4,7 +4,7 @@ Module.register("MMM-ethereum", {
 
   result: {},
   defaults: {
-    updateInterval: 60000
+    updateInterval: 10000
   },
 
   getStyles: function() {
