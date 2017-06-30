@@ -32,6 +32,7 @@ modules: [
 <a href="https://cryptowat.ch/docs/api#rate-limit">API Documentation can be found here</a>
 
 ## To Do
+* API allows for different exchanges, allow setting this via configuration
 * 24h high/low values on the ticker
 * Last change indicator (Green = price went up, Red = Price went down)
 * Current hashrate for mining rig
@@ -40,3 +41,5 @@ modules: [
 * Pending payout for mining
 * Mining calculator based on average mining
 * Convert USD value to local currency (Configurable - ZAR in my case)
+* Add ticker graph (minute, hour, day, week, month, year)
+* Possible future extensibility to allow for different cryptocurrencies
