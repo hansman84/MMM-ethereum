@@ -24,6 +24,7 @@ Module.register("MMM-ethereum", {
 
     var data = this.result;
     var symbolElement =  document.createElement("span");
+	var breakElement =  document.createElement("br");
     var symbol = "Eth";
 	var lastPrice = data.result.price.last;
 	var highPrice = data.result.price.high;
@@ -35,6 +36,17 @@ Module.register("MMM-ethereum", {
       var priceElement = document.createElement("span");
       priceElement.innerHTML = lastPrice;
       wrapper.appendChild(priceElement);
+	  wrapper.appendChild(breakElement);
+	  
+	  var lowElement = document.createElement("span");
+	  lowElement.className = 'small down';
+	  lowElement.innerHTML = '$' + lowPrice + '&nbsp&nbsp;&nbsp;';
+	  wrapper.appendChild(lowElement);
+	  
+	  var highElement = document.createElement("span");
+	  highElement.className = 'small up';
+	  highElement.innerHTML = '$' + highPrice;
+	  wrapper.appendChild(highElement);
     }
     return wrapper;
   },
@@ -56,7 +68,7 @@ Module.register("MMM-ethereum", {
 	this.sendSocketNotification('GET_DATA', url);
   },
 
-  socketNotificationReceived: function(notification, payload) {
+  socketNotificationReceived: function(notification, payload, payload2) {
     if (notification === "DATA_RESULT") {
       this.result = payload;
       this.updateDom(self.config.fadeSpeed);
