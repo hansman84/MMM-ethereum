@@ -4,7 +4,8 @@ Module.register("MMM-ethereum", {
 
   result: {},
   defaults: {
-    updateInterval: 10000
+    updateInterval: 10000,
+	exchange: 'kraken'
   },
 
   getStyles: function() {
@@ -51,8 +52,8 @@ Module.register("MMM-ethereum", {
   },
 
   getTickers: function () {
-    var url = 'https://api.cryptowat.ch/markets/kraken/ethusd/summary';
-    this.sendSocketNotification('GET_DATA', url);
+    var url = 'https://api.cryptowat.ch/markets/' + this.config.exchange + '/ethusd/summary';
+	this.sendSocketNotification('GET_DATA', url);
   },
 
   socketNotificationReceived: function(notification, payload) {
