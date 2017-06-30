@@ -5,7 +5,9 @@ Module.register("MMM-ethereum", {
   result: {},
   defaults: {
     updateInterval: 30000,
-	exchange: 'kraken'
+	exchange: 'kraken',
+	currencyPair: 'ethusd',
+	showHighLow: true
   },
 
   getStyles: function() {
@@ -38,15 +40,17 @@ Module.register("MMM-ethereum", {
       wrapper.appendChild(priceElement);
 	  wrapper.appendChild(breakElement);
 	  
-	  var lowElement = document.createElement("span");
-	  lowElement.className = 'small down';
-	  lowElement.innerHTML = '$' + lowPrice + '&nbsp&nbsp;&nbsp;';
-	  wrapper.appendChild(lowElement);
-	  
-	  var highElement = document.createElement("span");
-	  highElement.className = 'small up';
-	  highElement.innerHTML = '$' + highPrice;
-	  wrapper.appendChild(highElement);
+	  if (this.config.showHighLow) {
+		  var lowElement = document.createElement("span");
+		  lowElement.className = 'small down';
+		  lowElement.innerHTML = '$' + lowPrice + '&nbsp&nbsp;&nbsp;';
+		  wrapper.appendChild(lowElement);
+		  
+		  var highElement = document.createElement("span");
+		  highElement.className = 'small up';
+		  highElement.innerHTML = '$' + highPrice;
+		  wrapper.appendChild(highElement);
+	  }
     }
     return wrapper;
   },
@@ -64,7 +68,7 @@ Module.register("MMM-ethereum", {
   },
 
   getTickers: function () {
-    var url = 'https://api.cryptowat.ch/markets/' + this.config.exchange + '/ethusd/summary';
+    var url = 'https://api.cryptowat.ch/markets/' + this.config.exchange + '/' + this.config.currencyPair + '/summary';
 	this.sendSocketNotification('GET_DATA', url);
   },
 
