@@ -31,8 +31,9 @@ modules: [
 | `exchange`	   | *Optional*<br/>The exchange used to get the data<br/><br/>Can be any item from <a href="https://api.cryptowat.ch/markets">THIS LIST</a> with a *currencyPair* of *ethusd* <br><br>**Type:** `String` <br>Default "kraken"
 
 ## To Do
+* **Create issues to track these**
 * ~API allows for different exchanges, allow setting this via configuration~
-* 24h high/low values on the ticker
+* ~24h high/low values on the ticker~
 * Last change indicator (Green = price went up, Red = Price went down)
 * Current hashrate for mining rig
 * Alert when miner goes offline
