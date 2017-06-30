@@ -25,6 +25,9 @@ Module.register("MMM-ethereum", {
     wrapper.className = 'ticker';
 
     var data = this.result;
+	
+	console.log(data);
+	
     var symbolElement =  document.createElement("span");
 	var breakElement =  document.createElement("br");
     var symbol = "Eth";
@@ -51,6 +54,11 @@ Module.register("MMM-ethereum", {
 		  highElement.innerHTML = '$' + highPrice;
 		  wrapper.appendChild(highElement);
 	  }
+	  
+	  var testElement = document.createElement("span");
+		  testElement.className = 'small';
+		  testElement.innerHTML = data.previousValue;
+		  wrapper.appendChild(testElement);
     }
     return wrapper;
   },
