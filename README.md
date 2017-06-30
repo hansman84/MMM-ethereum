@@ -16,7 +16,8 @@ modules: [
     module: 'MMM-ethereum',
     position: 'top_right',
     config: {
-      updateInterval: 10000 //update interval in milliseconds, see Notes
+      updateInterval: 30000,
+      exchange: "kraken"
     }
   },
 ]
@@ -26,10 +27,11 @@ modules: [
 
 | Option           | Description
 |----------------- |-----------
-| `updateInterval` | *Optional* The API allowes for 2000000000 nanoseconds (2 seconds) of CPU time per hour, and allowance is reset every hour, on the hour.<br/>Each update uses between 2500000 and 5000000 nanoseconds<br/>Based on the maximum 5000000 nanoseconds, the allowance is 400 updates per hour<br/>That means one update every 9 seconds<br/><br/><a href="https://cryptowat.ch/docs/api#rate-limit">API Documentation can be found here</a><br><br>**Type:** `int`(milliseconds) <br>Default 10000 milliseconds (10 seconds)
+| `updateInterval` | *Optional*<br/>The API allowes for 2000000000 nanoseconds (2 seconds) of CPU time per hour, and allowance is reset every hour, on the hour.<br/>Each update uses between 2500000 and 10000000 nanoseconds<br/>Based on the maximum 10000000 nanoseconds, the allowance is 200 updates per hour<br/>That means one update every 18 seconds<br/><br/><a href="https://cryptowat.ch/docs/api#rate-limit">API Documentation can be found here</a><br><br>**Type:** `int`(milliseconds) <br>Default 30000 milliseconds (30 seconds)
+| `exchange`	   | *Optional*<br/>The exchange used to get the data<br/><br/>Can be any item from <a href="https://api.cryptowat.ch/markets">THIS LIST</a> with a *currencyPair* of *ethusd* <br><br>**Type:** `String` <br>Default "kraken"
 
 ## To Do
-* API allows for different exchanges, allow setting this via configuration
+* ~API allows for different exchanges, allow setting this via configuration~
 * 24h high/low values on the ticker
 * Last change indicator (Green = price went up, Red = Price went down)
 * Current hashrate for mining rig
