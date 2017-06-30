@@ -4,7 +4,7 @@ Module.register("MMM-ethereum", {
 
   result: {},
   defaults: {
-    updateInterval: 10000,
+    updateInterval: 30000,
 	exchange: 'kraken'
   },
 
