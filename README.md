@@ -23,12 +23,10 @@ modules: [
 ````
 
 ## Notes
+* The API allows for 2000000000 nanoseconds (2 seconds) of CPU time per hour, which is reset every hour, on the hour.
+* Each update uses between 2500000 and 5000000 nanoseconds of CPU time
+* This allows for one update every 9 seconds on worst conditions of 5000000 nanoseconds
 
-The API allowes for 2000000000 nanoseconds (2 seconds) of CPU time per hour, and allowance is reset every hour, on the hour.
-Each update uses between 2500000 and 5000000 nanoseconds
-Based on the maximum 5000000 nanoseconds, the allowance is 400 updates per hour
-That means one update every 9 seconds
+**Default** update interval is set to **10 seconds,** which should be a safe value
 
-Default is set to 10 seconds, the values rarely change more frequently than 10 seconds
-
-<a href="https://cryptowat.ch/docs/api#rate-limit">API Documentation</a>
+<a href="https://cryptowat.ch/docs/api#rate-limit">API Documentation can be found here</a>
