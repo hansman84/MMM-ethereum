@@ -7,7 +7,8 @@ Module.register("MMM-ethereum", {
     updateInterval: 30000,
 	exchange: 'kraken',
 	currencyPair: 'ethusd',
-	showHighLow: true
+	showHighLow: true,
+    highLowColor: true
   },
 
   getStyles: function() {
@@ -42,13 +43,19 @@ Module.register("MMM-ethereum", {
 	  
 	  if (this.config.showHighLow) {
 		  var lowElement = document.createElement("span");
-		  lowElement.className = 'small down';
+		  lowElement.className = 'small';
 		  lowElement.innerHTML = '$' + lowPrice + '&nbsp&nbsp;&nbsp;';
-		  wrapper.appendChild(lowElement);
 		  
 		  var highElement = document.createElement("span");
-		  highElement.className = 'small up';
+		  highElement.className = 'small';
 		  highElement.innerHTML = '$' + highPrice;
+          
+          if (this.config.highLowColor) {
+              lowElement.className = 'small down';
+              highElement.className = 'small up';
+          }
+          
+          wrapper.appendChild(lowElement);
 		  wrapper.appendChild(highElement);
 	  }
     }
