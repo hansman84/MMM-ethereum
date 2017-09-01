@@ -8,7 +8,9 @@ Module.register("MMM-ethereum", {
 	exchange: 'kraken',
 	currencyPair: 'ethusd',
 	showHighLow: true,
-    highLowColor: true
+    	highLowColor: true,
+	currencysymbol: ' €',
+	cryptcurrencyname: 'ETH'
   },
 
   getStyles: function() {
@@ -28,13 +30,13 @@ Module.register("MMM-ethereum", {
     var data = this.result;
     var symbolElement =  document.createElement("span");
 	var breakElement =  document.createElement("br");
-    var symbol = "Eth";
+    var symbol = this.config.cryptcurrencyname;
 	var lastPrice = data.result.price.last;
 	var highPrice = data.result.price.high;
 	var lowPrice = data.result.price.low;
 	
     if (lastPrice) {
-      symbolElement.innerHTML = symbol + ' $';
+      symbolElement.innerHTML = symbol + this.config.currencysymbol;
       wrapper.appendChild(symbolElement);
       var priceElement = document.createElement("span");
       priceElement.innerHTML = lastPrice;
@@ -44,11 +46,11 @@ Module.register("MMM-ethereum", {
 	  if (this.config.showHighLow) {
 		  var lowElement = document.createElement("span");
 		  lowElement.className = 'small';
-		  lowElement.innerHTML = '$' + lowPrice + '&nbsp&nbsp;&nbsp;';
+		  lowElement.innerHTML = this.config.currencysymbol + lowPrice + '&nbsp&nbsp;&nbsp;';
 		  
 		  var highElement = document.createElement("span");
 		  highElement.className = 'small';
-		  highElement.innerHTML = '$' + highPrice;
+		  highElement.innerHTML = this.config.currencysymbol + highPrice;
           
           if (this.config.highLowColor) {
               lowElement.className = 'small down';
